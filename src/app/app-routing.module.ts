@@ -6,19 +6,19 @@ import { ContentLayoutComponent } from './layouts/content-layout/content-layout.
 
 import { CONTENT_ROUTES } from '@app/shared';
 
-import { NoAuthGuard } from '@app/core';
+import { AuthGuard } from '@app/core';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/auth/login',
+    redirectTo: '/home/home',
     pathMatch: 'full'
   },
   {
-    path: '',
+    path: 'home',
     component: ContentLayoutComponent,
-    canActivate: [NoAuthGuard],
-    children: CONTENT_ROUTES
+    canActivate: [AuthGuard],
+    loadChildren: './modules/home/home.module#HomeModule'
   },
   {
     path: 'auth',
@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/auth/login',
+    redirectTo: '/home/home',
     pathMatch: 'full'
   }
 ];

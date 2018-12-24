@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { TokenInterceptor } from './interceptors/token.interceptor';
 
-import { NoAuthGuard } from './guards/no-auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 import { throwIfAlreadyLoaded } from './guards/module-import.guard';
+
+import {JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './interceptors';
 
 @NgModule({
   declarations: [],
@@ -15,13 +16,13 @@ import { throwIfAlreadyLoaded } from './guards/module-import.guard';
     HttpClientModule
   ],
   providers: [
-    NoAuthGuard,
 
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+     // provider used to create fake backend
+    fakeBackendProvider
+
   ]
 })
 export class CoreModule { 
