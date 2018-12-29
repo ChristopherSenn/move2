@@ -8,7 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 import { throwIfAlreadyLoaded } from './guards/module-import.guard';
 
-import {JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './interceptors';
+import {JwtInterceptor, ErrorInterceptor/*, fakeBackendProvider*/ } from './interceptors';
 
 @NgModule({
   declarations: [],
@@ -21,7 +21,7 @@ import {JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './intercep
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
      // provider used to create fake backend
-    fakeBackendProvider
+    //fakeBackendProvider
 
   ]
 })
