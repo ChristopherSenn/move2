@@ -11,14 +11,14 @@ import { UserService, AuthenticationService } from '@app/core';
   styleUrls: ['./content-layout.component.scss']
 })
 export class ContentLayoutComponent implements OnInit {
-  users: User[] = [];
+  //users: User[] = [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getAll().pipe(first()).subscribe(users => {
+    /*this.userService.getAll().pipe(first()).subscribe(users => {
       this.users = users;
-    });
+    });*/
   }
 
 }
