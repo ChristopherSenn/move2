@@ -1,6 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
@@ -9,11 +9,16 @@ import { AuthGuard } from './guards/auth.guard';
 import { throwIfAlreadyLoaded } from './guards/module-import.guard';
 
 import {JwtInterceptor, ErrorInterceptor/*, fakeBackendProvider*/ } from './interceptors';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [MainNavComponent],
   imports: [
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
+  ],
+  exports: [
+    MainNavComponent
   ],
   providers: [
 

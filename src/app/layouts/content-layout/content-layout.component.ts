@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
 import { User } from '@app/core';
-import { UserService, AuthenticationService } from '@app/core';
+import { UserService } from '@app/core';
 
 @Component({
   selector: 'app-content-layout',

@@ -26,6 +26,24 @@ const routes: Routes = [
     loadChildren: './modules/auth/auth.module#AuthModule'
   },
   {
+    path: 'internship',
+    component: ContentLayoutComponent,
+    canActivate: [AuthGuard],
+    loadChildren: './modules/internship/internship.module#InternshipModule'
+  },
+  {
+    path: 'studyAbroad',
+    component: ContentLayoutComponent,
+    canActivate: [AuthGuard],
+    loadChildren: './modules/study-abroad/study-abroad.module#StudyAbroadModule'
+  },
+  {
+    path: 'profile',
+    component: ContentLayoutComponent,
+    canActivate: [AuthGuard],
+    loadChildren: './modules/profile/profile.module#ProfileModule'
+  },
+  {
     path: '**',
     redirectTo: '/home/home',
     pathMatch: 'full'
