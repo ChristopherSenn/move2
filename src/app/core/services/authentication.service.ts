@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { RequestOptions } from '@angular/http';
 
 import { User } from '@app/core';
 
@@ -41,4 +42,20 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
+
+    /*authTest() {
+        
+        const httpHeaders = new HttpHeaders({
+            'authorization': 'Bearer ' + this.currentUserValue.token
+        });
+        const options = {
+            headers: httpHeaders
+        }
+        const test = 'asdada';
+        return this.http.post<any>(this.server + `/api/guardedRoute`, test,  options )
+            .pipe(map(message => {
+                console.log(message);
+                return message;
+            }));
+    }*/
 }
