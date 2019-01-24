@@ -1,3 +1,5 @@
 <p>
   map works!
 </p>
+<app-angular-map [markerCategory]=markerCategory (markerClicked)="markerClickedHandler($event)"></app-angular-map>
+<app-university-detail-modal [data]=universityDetailOnMap (toggleUniversityDetailModal)="toggleUniversityDetailModalHandler()" [hidden]="!universityDetailOnMapIsVisible"></app-university-detail-modal>

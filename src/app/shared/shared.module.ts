@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
+import { AngularMapComponent } from './components/angular-map/angular-map.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [AngularMapComponent],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    CommonModule,
-    RouterModule
+    AngularMapComponent
   ]
 })
 export class SharedModule { }

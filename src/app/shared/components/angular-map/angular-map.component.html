@@ -1,0 +1,8 @@
+<!--<agm-map [latitude]="mapCenterLat" [longitude]="mapCenterLng" style="height: 100%;"></agm-map>-->
+<h2>List of Markers</h2>
+<div>(angular-map-component)</div>
+<section *ngFor="let marker of markers">
+    <h3>id: {{marker.id}}</h3>
+    <div>lat: {{marker.lat}}, lng: {{marker.lng}}</div>
+    <button (click)="toggleDetails(marker.id)">Details</button>
+</section>
