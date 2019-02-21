@@ -16,6 +16,8 @@ export class MapComponent implements OnInit {
   constructor(private universityService: UniversityService) { }
 
   ngOnInit() {
+    //workaro
+    //this.universityService.getUniversityDetailOnMap(0).subscribe(details => this.universityDetailOnMap = details);
   }
 
   private markerClickedHandler(id: number) {

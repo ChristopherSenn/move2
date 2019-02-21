@@ -1,0 +1,12 @@
+<p>
+  university-map-filter works!
+</p>
+<section *ngFor="let category of universityFilters">
+  <h4>{{category.title}}</h4>
+  <ul>
+    <li *ngFor="let content of category.content" (click)="toggleFilter(category.id, content.id)">
+      {{content.id}},  {{content.content}}
+    </li>
+  </ul>
+</section>
+<button (click)="test()">sdasd</button>

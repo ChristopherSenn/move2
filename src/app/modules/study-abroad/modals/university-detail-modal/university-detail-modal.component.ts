@@ -8,7 +8,6 @@ import { UniversityDetailOnMap } from '@app/core';
 })
 export class UniversityDetailModalComponent implements OnInit {
   @Input() data: UniversityDetailOnMap;
-  @Input() isVisible: boolean;
 
   @Output() toggleUniversityDetailModal: EventEmitter<void> = new EventEmitter();
 
@@ -18,7 +17,7 @@ export class UniversityDetailModalComponent implements OnInit {
   }
 
   private toggleModal() {
-    this.isVisible = false;
+    this.toggleUniversityDetailModal.emit();
   }
 
 }

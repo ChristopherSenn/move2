@@ -1,5 +1,17 @@
 <p>
   map works!
 </p>
+<!-- 
+  markerCategory: Because the map Component will be reused in the Internship section, it needs to know which markers it has to load
+  markerClicked: An Event that gets triggered from within the map Component when a marker is clicked and passes the id of the clicked marker to the parent component.
+    The handler Method also triggers the modal.
+-->
 <app-angular-map [markerCategory]=markerCategory (markerClicked)="markerClickedHandler($event)"></app-angular-map>
-<app-university-detail-modal [data]=universityDetailOnMap (toggleUniversityDetailModal)="toggleUniversityDetailModalHandler()" [hidden]="!universityDetailOnMapIsVisible"></app-university-detail-modal>
+<!-- 
+  data: Passes the data from the university Service to the Modal Component
+  toggleUniversityDetailModel: Triggered when the modal is closed; triggers the *ngIf to remove the component from the dom.
+  ngIf: two operators; IsVisible is the main controller of the modals visibility, universityDetail on map is to fix an error when the website is faster than the database
+-->
+<app-university-detail-modal [data]=universityDetailOnMap (toggleUniversityDetailModal)="toggleUniversityDetailModalHandler()" *ngIf="universityDetailOnMapIsVisible && universityDetailOnMap"></app-university-detail-modal>
+
+<app-university-map-filter></app-university-map-filter>
