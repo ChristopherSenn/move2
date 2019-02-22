@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { MarkerOnMap, UniversityDetailOnMap, UniversityFilters, UniversityMapFilterElement } from '@app/core';
+import { MarkerOnMap, UniversityDetailOnMap, UniversityFilterPair, UniversityMapFilterElement } from '@app/core';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { User } from '../models';
@@ -28,6 +28,11 @@ export class UniversityService {
   getUniversityFilters(filter: string) {
     const options = { headers: this.getJWTHeaders()};
     return this.http.post<UniversityMapFilterElement[]>(this.server + `/api/UniversityFilters`, {filter}, options);
+  }
+
+  getFilters(filter: string) {
+    const options = { headers: this.getJWTHeaders()};
+    return this.http.post<UniversityFilterPair>(this.server + `/api/Filters`, {filter}, options);
   }
 
   private getJWTHeaders(): HttpHeaders{

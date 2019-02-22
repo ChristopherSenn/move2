@@ -28,3 +28,8 @@ export class UniversityMapFilterElement {
     content: string;
     isActive: boolean;
 }
+
+export class UniversityFilterPair {
+    universityId: number;
+    filterId: number;
+}

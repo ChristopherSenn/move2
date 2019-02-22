@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UniversityService, UniversityFilters, UniversityMapFilterElement } from '@app/core';
 
 @Component({
@@ -7,6 +7,8 @@ import { UniversityService, UniversityFilters, UniversityMapFilterElement } from
   styleUrls: ['./university-map-filter.component.scss']
 })
 export class UniversityMapFilterComponent implements OnInit {
+  @Output() filterChanged: EventEmitter<UniversityFilters[]> = new EventEmitter<UniversityFilters[]>();
+
   private universityFilters: UniversityFilters[] = [];
 
   constructor(private universityService: UniversityService) { }
@@ -18,12 +20,10 @@ export class UniversityMapFilterComponent implements OnInit {
 
   toggleFilter(category: number, content: number) {
     this.universityFilters[category].content[content].isActive = !this.universityFilters[category].content[content].isActive;
+    this.filterChanged.emit(this.universityFilters);
     //console.log(category);console.log(content);
   }
 
-  test() {
-    console.log(this.universityFilters);
-  }
 
   private getFilters() {
     this.universityFilters = [{id: 0, title: 'Languages', content: null}, {id: 1, title: 'Activities', content: null}, {id: 2, title: 'Faculties', content: null}];

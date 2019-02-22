@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MarkerOnMap, UniversityService } from '@app/core';
+import { MarkerOnMap, UniversityService, UniversityFilterPair } from '@app/core';
 
 @Component({
   selector: 'app-angular-map',
@@ -8,6 +8,8 @@ import { MarkerOnMap, UniversityService } from '@app/core';
 })
 export class AngularMapComponent implements OnInit {
   @Input() markerCategory: string;
+  @Input() displayableUniversities: number[];
+  @Input() filterIsActive: boolean;
 
   @Output() markerClicked: EventEmitter<number> = new EventEmitter();
 
