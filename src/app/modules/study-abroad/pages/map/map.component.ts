@@ -48,6 +48,7 @@ export class MapComponent implements OnInit {
         }
       }
     }
+
     //creates an array that contains all the IDs of the universities that fulfill each filter results[filterCategory][idOfUniversities] 
     //=> contains duplicates, because each active filter can be fullfilled from multiple universities
     let results: number [][] = [];
