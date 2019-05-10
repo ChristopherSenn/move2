@@ -2,6 +2,7 @@ export class MarkerOnMap {
     id: number;
     lat: number;
     lng: number;
+    name: string;
 }
 
 export class UniversityDetailOnMap {

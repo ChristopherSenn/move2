@@ -1,10 +1,31 @@
-<!--<agm-map [latitude]="mapCenterLat" [longitude]="mapCenterLng" style="height: 100%;"></agm-map>-->
-<h2>List of Markers</h2>
+<!--<h2>List of Markers</h2>
 <div>(angular-map-component)</div>
 <section *ngFor="let marker of markers">
     <div *ngIf="displayableUniversities.includes(marker.id) || filterIsActive == false">
-        <h3>id: {{marker.id}}</h3>
+        <h3>id: {{marker.name}}</h3>
         <div>lat: {{marker.lat}}, lng: {{marker.lng}}</div>
         <button (click)="toggleDetails(marker.id)">Details</button>
     </div>
-</section>
+</section>-->
+<i class="fa"></i>
+<div style="height: 600px">
+    <x-map [Latitude]="11.5" [Longitude]="38.05" [Zoom]="1.5">
+        <x-cluster-layer 
+            [GridSize]="150"
+            [ClusteringEnabled]="true"
+            [UseDynamicSizeMarkers]="true"
+            [DynamicMarkerBaseSize]="18"
+            [DynamicMarkerRanges]="clusterColors"
+            >
+            <ng-container *ngFor="let m of markers" >
+                <x-map-marker *ngIf="displayableUniversities.includes(m.id) || filterIsActive == false"
+                    [Latitude]="m.lat" [Longitude]="m.lng"
+                    [Title]="m.name"
+                    [IconInfo]="iconInfo"
+                    (MarkerClick)="toggleDetails(m.id)">
+                </x-map-marker>
+            </ng-container>
+        </x-cluster-layer>
+        
+    </x-map>
+</div>
