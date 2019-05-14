@@ -9,9 +9,10 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
 import { RouterModule } from '@angular/router';
 import { AngularMapComponent } from './components/angular-map/angular-map.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { MapPointsListComponent } from './components/map-points-list/map-points-list.component';
 
 @NgModule({
-  declarations: [AngularMapComponent],
+  declarations: [AngularMapComponent, MapPointsListComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -24,7 +25,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     }
   ],
   exports: [
-    AngularMapComponent
+    AngularMapComponent,
+    MapPointsListComponent
   ]
 })
 export class SharedModule { }

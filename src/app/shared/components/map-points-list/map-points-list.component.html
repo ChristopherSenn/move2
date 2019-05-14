@@ -1,0 +1,8 @@
+<h2>List of Markers</h2>
+<section *ngFor="let marker of markers">
+    <div *ngIf="displayableUniversities.includes(marker.id) || filterIsActive == false">
+        <h3>Name: {{marker.name}}</h3>
+        <div>lat: {{marker.lat}}, lng: {{marker.lng}}</div>
+        <button (click)="toggleDetails(marker.id)">Details</button>
+    </div>
+</section>

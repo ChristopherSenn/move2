@@ -16,3 +16,5 @@
 
 <app-university-map-filter (filterChanged)="onFilterChanged($event)"></app-university-map-filter>
 
+<app-map-points-list [markerCategory]=markerCategory [displayableUniversities]="displayableUniversities" [filterIsActive]="filterIsActive" (markerClicked)="markerClickedHandler($event)"></app-map-points-list>
+
