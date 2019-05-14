@@ -7,9 +7,13 @@
         <button (click)="toggleDetails(marker.id)">Details</button>
     </div>
 </section>-->
+
+<!-- The link is needed, because angular-maps doesn't support angular-fontawesome :/-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <i class="fa"></i>
-<div style="height: 600px">
-    <x-map [Latitude]="11.5" [Longitude]="38.05" [Zoom]="1.5">
+<div style="height: 600px"> <!-- REMOVE THIS-->
+    <x-map [Options]="_options" [Latitude]="11.5" [Longitude]="38.05" [Zoom]="1.5">
         <x-cluster-layer 
             [GridSize]="150"
             [ClusteringEnabled]="true"

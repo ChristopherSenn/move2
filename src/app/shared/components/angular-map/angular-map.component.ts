@@ -1,10 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MarkerOnMap, UniversityService, UniversityFilterPair } from '@app/core';
-import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef, 
-  DocumentRef, MapServiceFactory, 
-  BingMapAPILoaderConfig, BingMapAPILoader, 
-  GoogleMapAPILoader,  GoogleMapAPILoaderConfig, ILatLong
-} from 'angular-maps';
+import { MarkerOnMap, UniversityService } from '@app/core';
+import {MarkerTypeId, IMapOptions, IMarkerIconInfo } from 'angular-maps';
+
+// I guess I need a lib for those
+import { faUniversity } from '@fortawesome/pro-solid-svg-icons';
 
 @Component({
   selector: 'app-angular-map',
@@ -20,32 +19,27 @@ export class AngularMapComponent implements OnInit {
 
   markers: MarkerOnMap[] = []; 
 
-  mapCenterLat: number = 51.678418;
-  mapCenterLng: number = 7.809007;
+  // General map Options; Put customStyles here when supported
+  _options: IMapOptions = {
+    navigationBarMode: 2, // In case showDashboard ever gets removed
+    showDashboard: false, // Disables navigation bar
+    mapTypeId: 2 // Will be overwritten by customStyles
+  };
   
-
-  /*_options: IMapOptions = {
-    disableBirdseye: false,
-    disableStreetside: false,
-    navigationBarMode: 1
-  };*/
-  
-  /*_box: IBox = {
-    maxLatitude: 32,
-    maxLongitude: -92,
-    minLatitude: 29,
-    minLongitude: -98
-  };*/
-  
+  // Imo the best / only way to make angular-maps kinda work hand in hand with angular-fontawesome
   private iconInfo: IMarkerIconInfo = {
     markerType: MarkerTypeId.FontMarker,
     fontName: 'FontAwesome',
-    fontSize: 24,
+    fontSize: 19,
     color: 'red',
     markerOffsetRatio: { x: 0.5, y: 1 },
-    text: '\uF276'
+    text: String.fromCharCode(parseInt(faUniversity.icon[3], 16)) 
   }
 
+  // Colors of the Clusters
+  /**
+   * NEED TO BE ADJUSTED
+   */
   private clusterColors: Map<number, string> = new Map<number,string>([
     [10, 'rgba(20, 180, 20, 0.5)'],
     [20, 'rgba(255, 210, 40, 0.5)'],

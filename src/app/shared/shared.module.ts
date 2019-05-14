@@ -8,13 +8,15 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
 
 import { RouterModule } from '@angular/router';
 import { AngularMapComponent } from './components/angular-map/angular-map.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AngularMapComponent],
   imports: [
     CommonModule,
     RouterModule,
-    MapModule.forRootBing()
+    MapModule.forRootBing(),
+    FontAwesomeModule
   ],
   providers: [
     {
